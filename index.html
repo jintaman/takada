@@ -21,9 +21,16 @@
     </style>
 </head>
 <body>
-    <video id="videoPlayer" autoplay controls>
+    <video id="videoPlayer" autoplay muted>
         <source src="video.mp4" type="video/mp4">
         お使いのブラウザは動画タグをサポートしていません。
     </video>
+
+    <script>
+        window.onload = function() {
+            var video = document.getElementById('videoPlayer');
+            video.play(); // 動画を自動再生
+        };
+    </script>
 </body>
 </html>
