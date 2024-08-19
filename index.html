@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -17,20 +18,37 @@
         video {
             max-width: 100%;
             height: auto;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <video id="videoPlayer" autoplay>
+    <video id="videoPlayer" autoplay controls>
         <source src="video.mp4" type="video/mp4">
         お使いのブラウザは動画タグをサポートしていません。
     </video>
+    
+    <div>
+        <button id="playPauseButton" onclick="togglePlayPause()">一時停止</button>
+    </div>
 
     <script>
-        window.onload = function() {
-            var video = document.getElementById('videoPlayer');
-            video.play(); // 動画を自動再生
-        };
+        var video = document.getElementById('videoPlayer');
+        var playPauseButton = document.getElementById('playPauseButton');
+
+        function togglePlayPause() {
+            if (video.paused) {
+                video.play();
+                playPauseButton.textContent = '一時停止';
+            } else {
+                video.pause();
+                playPauseButton.textContent = '再生';
+            }
+        }
     </script>
 </body>
 </html>
